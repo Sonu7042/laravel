@@ -143,5 +143,9 @@ class UserController extends Controller
     function connect(){
         $users= DB::select('select * from users');
         return view('dbConnect.user', ['users'=> $users]);
-    }     
+    }   
+    
+    
+
+    
 };

@@ -13,9 +13,21 @@ class Student extends Model
     // }
 
 
-  
-    
 
-    
+    // laravel accessors to change particuler column value
+    function getNameAttribute($val){
+        // return "apple";  //change to name value to apple on UI not in table
+        return ucfirst($val); // change to name value to first letter capital
+    }
+
+    function getPasswordAttribute($val){
+        return "+91". $val; // change to password  value and +91 front of it
+    }
+
+
+    // laravel Mutators
+    function setNameAttribute($val){
+        $this->attributes['name'] = ucfirst($val);
+    }
                                                                                 
 }

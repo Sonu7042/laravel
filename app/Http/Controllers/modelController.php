@@ -294,9 +294,7 @@ class modelController extends Controller
       $searchData= Student::where('name', 'like', "%$req->search%")->get();
       return view('dataInsertIntoDb.display', ['student'=> $searchData, 'searchData' => $req->search]);
    }
-
-      
-      
+ 
    function deleteMulti(Request $req){
       $result= Student::destroy($req->ids);
       if($result){
@@ -312,5 +310,29 @@ class modelController extends Controller
    }
 
 
+   // laravel accessors
+   function accessors(){
+      return Student::all();
+   }
 
+
+   // laravel Mutators
+   function mutators(){
+      $student= new Student();
+      $student->name="bruce";
+      $student->email="bruce@gmail.com";
+      $student->password="12345";
+      if($student->save()){
+         echo "new student added";
+      }else{
+         echo "operation failed";
+      }
+   }
+
+
+
+   
+
+
+   
 }

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\modelController;
 use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\SellerController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Session;
 
 // Route::get('/home', function () {
@@ -241,5 +243,32 @@ Route::view('templateLogin', 'templateLayout.login');// loing page route
 Route::view('templateHome', 'templateLayout.home');// home page route
 
 
+//stubs 
+Route::get('stubs', [modelController::class, 'index']); //display the stubs
 
-        
+
+//laravel accessors
+Route::get('accessors', [modelController::class, 'accessors']); //display data with accessors on UI
+
+
+// laravel Mutators
+Route::get('mutators', [modelController::class, 'mutators' ]);
+
+
+
+
+
+// Laraval table relationship
+//one to one relationship
+Route::get('oneToOne', [SellerController::class, 'one_To_One_RelationShip' ]);
+
+//one to one relationship
+Route::get('oneToMany', [SellerController::class, 'one_To_Many_RelationShip' ]);
+
+//many to one relationship
+Route::get('manyToOne', [SellerController::class, 'Many_to_one_RelationShip']);
+
+
+//MailController
+Route::view('mail', 'sendMail.index');
+Route::get('mailController', [MailController::class, 'MailController'] );
