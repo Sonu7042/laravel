@@ -254,10 +254,6 @@ Route::get('accessors', [modelController::class, 'accessors']); //display data w
 // laravel Mutators
 Route::get('mutators', [modelController::class, 'mutators' ]);
 
-
-
-
-
 // Laraval table relationship
 //one to one relationship
 Route::get('oneToOne', [SellerController::class, 'one_To_One_RelationShip' ]);
@@ -268,7 +264,11 @@ Route::get('oneToMany', [SellerController::class, 'one_To_Many_RelationShip' ]);
 //many to one relationship
 Route::get('manyToOne', [SellerController::class, 'Many_to_one_RelationShip']);
 
-
 //MailController
 Route::view('mail', 'sendMail.index');
-Route::get('mailController', [MailController::class, 'MailController'] );
+Route::get('mailController', [MailController::class, 'MailController']);
+
+
+//email send using form 
+Route::view('emailForm', 'sendEmailByForm.form');
+Route::post('send_email', [MailController::class, 'MailController']);
